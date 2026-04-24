@@ -213,7 +213,7 @@
                     <p>Часто задаваемые вопросы о городском бюджете, налогах и муниципальных расходах. Получите ответы от финансовых экспертов.</p>
                 </div>
                 <div class="col-lg-4 text-center">
-                    <img src="images/1.jpg" alt="Budget" class="img-fluid rounded-3 shadow" style="max-height: 300px;" onerror="this.src='https://placehold.co/400x300/e3f2fd/424242?text=Бюджет'">
+                    <img src="images/1.jpg" alt="Budget" class="img-fluid rounded-3 shadow" style="max-height: 300px;">
                 </div>
             </div>
         </div>
