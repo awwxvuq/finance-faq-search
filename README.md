@@ -224,7 +224,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="info-card">
-                    <img src="images/1.jpg"">
+                    <img src="images/1.jpg">
                     <h3>Бесплатная консультация</h3>
                     <p>Задайте свой вопрос финансовым экспертам</p>
                 </div>
