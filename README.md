@@ -224,21 +224,21 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="info-card">
-                    <img src="images/2.jpg" alt="Consulting"">
+                    <img src="images/1.jpg"">
                     <h3>Бесплатная консультация</h3>
                     <p>Задайте свой вопрос финансовым экспертам</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="info-card">
-                    <img src="images/3.jpg" alt="Statistics">
+                    <img src="images/2.jpg">
                     <h3>Прозрачность</h3>
                     <p>Вся информация о бюджете открыта</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="info-card">
-                    <img src="images/4.jpg" alt="Support">
+                    <img src="images/3.jpg">
                     <h3>Поддержка</h3>
                     <p>Помогаем разобраться в финансах</p>
                 </div>
