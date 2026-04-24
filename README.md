@@ -1,9 +1,10 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Бюджет для граждан | Вопросы и ответы</title>
+    
     <!-- Bootstrap CSS (из CDN, чтобы гарантированно работал) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -223,21 +224,21 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="info-card">
-                    <img src="images/2.jpg" alt="Consulting" onerror="this.src='https://placehold.co/80x80/e8f5e9/424242?text=💬'">
+                    <img src="images/2.jpg" alt="Consulting"">
                     <h3>Бесплатная консультация</h3>
                     <p>Задайте свой вопрос финансовым экспертам</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="info-card">
-                    <img src="images/3.jpg" alt="Statistics" onerror="this.src='https://placehold.co/80x80/e3f2fd/424242?text=📊'">
+                    <img src="images/3.jpg" alt="Statistics">
                     <h3>Прозрачность</h3>
                     <p>Вся информация о бюджете открыта</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="info-card">
-                    <img src="images/4.jpg" alt="Support" onerror="this.src='https://placehold.co/80x80/f3e5f5/424242?text=🎧'">
+                    <img src="images/4.jpg" alt="Support">
                     <h3>Поддержка</h3>
                     <p>Помогаем разобраться в финансах</p>
                 </div>
