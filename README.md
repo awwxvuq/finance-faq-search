@@ -1,224 +1,190 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой проект с Bootstrap</title>
+    <title>Бюджет для граждан | Вопросы и ответы</title>
+    
+    <!-- Bootstrap CSS (из CDN, чтобы гарантированно работал) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Ваши локальные стили (если есть) -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-</head>
-<style>
-    :root {
-        --pastel-mint: #E8F5E9;
-        --pastel-blue: #E3F2FD;
-        --pastel-lavender: #F3E5F5;
-        --pastel-cream: #FFF8E1;
-        --pastel-gray: #F5F5F5;
-        --text-dark: #424242;
-        --text-muted: #757575;
-    }
+    
+    <style>
+        :root {
+            --pastel-mint: #E8F5E9;
+            --pastel-blue: #E3F2FD;
+            --pastel-lavender: #F3E5F5;
+            --pastel-cream: #FFF8E1;
+            --pastel-gray: #F5F5F5;
+            --text-dark: #424242;
+            --text-muted: #757575;
+        }
 
-    body {
-        font-family: 'Open Sans', sans-serif;
-        background-color: var(--pastel-gray);
-        color: var(--text-dark);
-    }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--pastel-gray);
+            color: var(--text-dark);
+        }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: 'Times New Roman', Times, serif;
-    }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Times New Roman', Times, serif;
+        }
 
-    /* Navbar */
-    .navbar {
-        background: linear-gradient(135deg, var(--pastel-mint) 0%, var(--pastel-blue) 100%);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    }
+        .navbar {
+            background: linear-gradient(135deg, var(--pastel-mint) 0%, var(--pastel-blue) 100%);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
 
-    .navbar-brand {
-        font-weight: 700;
-        color: var(--text-dark) !important;
-    }
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--text-dark) !important;
+        }
 
-    /* Hero Section */
-    .hero-section {
-        background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--pastel-lavender) 100%);
-        padding: 60px 0;
-        margin-bottom: 40px;
-    }
-
-    .hero-section h1 {
-        font-weight: 700;
-        margin-bottom: 20px;
-    }
-
-    .hero-section p {
-        font-size: 1.1rem;
-        color: var(--text-muted);
-    }
-
-    /* Search Box */
-    .search-box {
-        background-color: white;
-        border-radius: 15px;
-        padding: 30px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        margin-bottom: 40px;
-    }
-
-    .search-box .form-control {
-        border: 2px solid var(--pastel-blue);
-        border-radius: 10px;
-        padding: 12px 20px;
-        font-size: 1rem;
-    }
-
-    .search-box .form-control:focus {
-        border-color: var(--pastel-mint);
-        box-shadow: 0 0 0 0.2rem rgba(129, 199, 132, 0.25);
-    }
-
-    /* Accordion */
-    .accordion-item {
-        border: none;
-        margin-bottom: 15px;
-        border-radius: 10px !important;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    }
-
-    .accordion-button {
-        background-color: white;
-        color: var(--text-dark);
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        padding: 20px;
-        border: none;
-    }
-
-    .accordion-button:not(.collapsed) {
-        background-color: var(--pastel-mint);
-        color: var(--text-dark);
-    }
-
-    .accordion-button:hover {
-        background-color: var(--pastel-cream);
-    }
-
-    .accordion-body {
-        background-color: white;
-        padding: 20px;
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
-
-    .accordion-icon {
-        margin-right: 10px;
-        color: #81C784;
-    }
-
-    /* Cards */
-    .info-card {
-        background: white;
-        border-radius: 15px;
-        padding: 30px;
-        text-align: center;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        margin-bottom: 30px;
-        transition: transform 0.3s ease;
-    }
-
-    .info-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .info-card img {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        border-radius: 50%;
-        margin-bottom: 20px;
-    }
-
-    .info-card h3 {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-        color: var(--text-dark);
-    }
-
-    .info-card p {
-        color: var(--text-muted);
-        font-size: 0.9rem;
-    }
-
-    /* Stats Section */
-    .stats-section {
-        background: linear-gradient(135deg, var(--pastel-mint) 0%, var(--pastel-lavender) 100%);
-        padding: 50px 0;
-        margin: 40px 0;
-        border-radius: 15px;
-    }
-
-    .stat-item {
-        text-align: center;
-        padding: 20px;
-    }
-
-    .stat-number {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: var(--text-dark);
-    }
-
-    .stat-label {
-        color: var(--text-muted);
-        font-size: 0.9rem;
-    }
-
-    /* Footer */
-    footer {
-        background-color: white;
-        padding: 40px 0;
-        margin-top: 60px;
-        text-align: center;
-        color: var(--text-muted);
-    }
-
-    /* Badge */
-    .badge-custom {
-        background-color: var(--pastel-blue);
-        color: var(--text-dark);
-        padding: 5px 12px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 500;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
         .hero-section {
-            padding: 40px 0;
+            background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--pastel-lavender) 100%);
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .hero-section h1 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .search-box {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+        }
+
+        .search-box .form-control {
+            border: 2px solid var(--pastel-blue);
+            border-radius: 10px;
+            padding: 12px 20px;
+        }
+
+        .accordion-item {
+            border: none;
+            margin-bottom: 15px;
+            border-radius: 10px !important;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .accordion-button {
+            background-color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            padding: 20px;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: var(--pastel-mint);
+        }
+
+        .accordion-body {
+            background-color: white;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .accordion-icon {
+            margin-right: 10px;
+            color: #81C784;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, var(--pastel-mint) 0%, var(--pastel-lavender) 100%);
+            padding: 50px 0;
+            margin: 40px 0;
+            border-radius: 15px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
         }
 
         .stat-number {
-            font-size: 2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
         }
-    }
-</style>
 
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .badge-custom {
+            background-color: var(--pastel-blue);
+            color: var(--text-dark);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin: 0 4px;
+        }
+
+        footer {
+            background-color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section { padding: 40px 0; }
+            .stat-number { font-size: 2rem; }
+        }
+    </style>
+</head>
 <body>
 
-    <!-- Navbar (Компонент 1) -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="#">
@@ -230,15 +196,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Главная</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#faq">Вопросы и ответы</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contacts">Контакты</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">Вопросы и ответы</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacts">Контакты</a></li>
                 </ul>
             </div>
         </div>
@@ -250,44 +210,42 @@
             <div class="row align-items-center">
                 <div class="col-lg-8">
                     <h1>Бюджет в вопросах и ответах</h1>
-                    <p>Часто задаваемые вопросы о городском бюджете, налогах и муниципальных расходах. Получите
-                        ответы
-                        от финансовых экспертов.</p>
+                    <p>Часто задаваемые вопросы о городском бюджете, налогах и муниципальных расходах. Получите ответы от финансовых экспертов.</p>
                 </div>
                 <div class="col-lg-4 text-center">
-                    <img src="images/1.jpg" alt="Budget" class="img-fluid rounded-3 shadow" style="max-height: 300px;">
+                    <img src="images/1.jpg" alt="Budget" class="img-fluid rounded-3 shadow" style="max-height: 300px;" onerror="this.src='https://placehold.co/400x300/e3f2fd/424242?text=Бюджет'">
                 </div>
             </div>
         </div>
     </section>
 
     <div class="container">
-        <!-- Info Cards (Компонент 2) -->
+        <!-- Info Cards с 3 картинками (images/2.jpg, 3.jpg, 4.jpg) -->
         <div class="row">
             <div class="col-md-4">
                 <div class="info-card">
-                    <img src="images/2.jpg" alt="Consulting">
+                    <img src="images/2.jpg" alt="Consulting" onerror="this.src='https://placehold.co/80x80/e8f5e9/424242?text=💬'">
                     <h3>Бесплатная консультация</h3>
                     <p>Задайте свой вопрос финансовым экспертам</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="info-card">
-                    <img src="images/3.jpg" alt="Statistics">
+                    <img src="images/3.jpg" alt="Statistics" onerror="this.src='https://placehold.co/80x80/e3f2fd/424242?text=📊'">
                     <h3>Прозрачность</h3>
                     <p>Вся информация о бюджете открыта</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="info-card">
-                    <img src="images/4.jpg" alt="Support">
+                    <img src="images/4.jpg" alt="Support" onerror="this.src='https://placehold.co/80x80/f3e5f5/424242?text=🎧'">
                     <h3>Поддержка</h3>
                     <p>Помогаем разобраться в финансах</p>
                 </div>
             </div>
         </div>
 
-        <!-- Stats Section -->
+        <!-- Stats Section (15+, 1000+, 50+, 24/7) -->
         <div class="stats-section">
             <div class="container">
                 <div class="row">
@@ -319,7 +277,7 @@
             </div>
         </div>
 
-        <!-- Search Box (Компонент 3 - Forms) -->
+        <!-- Search Box -->
         <div class="search-box" id="faq">
             <h2 class="text-center mb-4">
                 <i class="bi bi-search me-2"></i>
@@ -327,31 +285,22 @@
             </h2>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="input-group input-group-lg">
-                        <span class="input-group-text bg-white border-end-0">
-                            <i class="bi bi-search text-muted"></i>
-                        </span>
-                        <input type="text" class="form-control border-start-0" id="searchInput"
-                            placeholder="Введите ключевые слова...">
-                    </div>
+                    <input type="text" class="form-control form-control-lg" id="searchInput" placeholder="Введите ключевые слова...">
                     <div class="text-center mt-3">
-                        <span class="badge-custom">Популярное</span>
-                        <spam class="badge-custom ms-2">налоги</spam>
-                        <span class="badge-custom ms-2">бюджет</span>
-                        <span class="badge-custom ms-2">льготы</span>
-                        <span class="badge-custom ms-2">субсидии</span>
+                        <span class="badge-custom">налоги</span>
+                        <span class="badge-custom">бюджет</span>
+                        <span class="badge-custom">льготы</span>
+                        <span class="badge-custom">субсидии</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Accordion (Компонент 4) -->
+        <!-- Accordion (ВСЕ 15 вопросов полностью) -->
         <div class="mb-5">
             <h2 class="text-center mb-4">Часто задаваемые вопросы</h2>
-
             <div class="accordion" id="faqAccordion">
 
-                <!-- Вопрос 1 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
@@ -361,26 +310,16 @@
                     </h2>
                     <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            <strong>Городской бюджет</strong> — это форма образования и расходования денежных
-                            средств,
-                            предназначенных для финансового обеспечения задач и функций местного самоуправления.
-                            <br><br>
+                            <strong>Городской бюджет</strong> — это форма образования и расходования денежных средств, предназначенных для финансового обеспечения задач и функций местного самоуправления.<br><br>
                             <strong>Источники формирования:</strong>
-                            <ul class="mt-2 mb-0">
-                                <li>Налоговые доходы (НДФЛ, земельный налог, налог на имущество)</li>
-                                <li>Неналоговые доходы (аренда муниципального имущества)</li>
-                                <li>Безвозмездные поступления из вышестоящих бюджетов</li>
-                                <li>Дотации и субсидии</li>
-                            </ul>
+                            <ul><li>Налоговые доходы (НДФЛ, земельный налог, налог на имущество)</li><li>Неналоговые доходы (аренда муниципального имущества)</li><li>Безвозмездные поступления из вышестоящих бюджетов</li><li>Дотации и субсидии</li></ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Вопрос 2 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
                             <i class="bi bi-question-circle-fill accordion-icon"></i>
                             Как я могу узнать, на что расходуются мои налоги?
                         </button>
@@ -388,23 +327,14 @@
                     <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
                             Информация о расходовании бюджетных средств находится в открытом доступе:
-                            <br><br>
-                            <ul class="mb-0">
-                                <li>На официальном сайте города в разделе "Бюджет для граждан"</li>
-                                <li>На портале "Открытый бюджет" (budget.gov.ru)</li>
-                                <li>В ежегодных отчетах администрации города</li>
-                                <li>На информационных стендах в МФЦ и администрациях районов</li>
-                            </ul>
-                            <br>
+                            <ul><li>На официальном сайте города в разделе "Бюджет для граждан"</li><li>На портале "Открытый бюджет" (budget.gov.ru)</li><li>В ежегодных отчетах администрации города</li><li>На информационных стендах в МФЦ</li></ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Вопрос 3 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
                             <i class="bi bi-question-circle-fill accordion-icon"></i>
                             Какие льготы по налогам существуют для пенсионеров?
                         </button>
@@ -412,34 +342,14 @@
                     <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
                             <strong>Пенсионеры имеют право на следующие льготы:</strong>
-                            <br><br>
-                            <ul class="mb-0">
-                                <li><strong>Имущественный налог:</strong> освобождение от уплаты за один объект
-                                    недвижимости каждого вида (квартира, дом, гараж)</li>
-                                <li><strong>Земельный налог:</strong> вычет в размере кадастровой стоимости 6 соток
-                                </li>
-                                <li><strong>Транспортный налог:</strong> льготы устанавливаются региональным
-                                    законодательством (обычно на автомобили мощностью до 100-150 л.с.)</li>
-                                <li><strong>Налог на доходы:</strong> освобождение от НДФЛ пенсии и социальных
-                                    доплат
-                                </li>
-                            </ul>
-                            <br>
-                            <div class="alert alert-info mb-0">
-                                <i class="bi bi-info-circle me-2"></i>
-                                Для получения льгот необходимо подать заявление в налоговую инспекцию или через
-                                личный
-                                кабинет налогоплательщика.
-                            </div>
+                            <ul><li><strong>Имущественный налог:</strong> освобождение от уплаты за один объект недвижимости</li><li><strong>Земельный налог:</strong> вычет в размере кадастровой стоимости 6 соток</li><li><strong>Транспортный налог:</strong> льготы устанавливаются региональным законодательством</li></ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Вопрос 4 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq4">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
                             <i class="bi bi-question-circle-fill accordion-icon"></i>
                             Как принять участие в обсуждении городского бюджета?
                         </button>
@@ -447,365 +357,163 @@
                     <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
                             <strong>Граждане могут участвовать в бюджетном процессе:</strong>
-                            <br><br>
-                            <ol class="mb-0">
-                                <li><strong>Публичные слушания</strong> — проводятся ежегодно перед утверждением
-                                    бюджета
-                                </li>
-                                <li><strong>Инициативное бюджетирование</strong> — подача предложений по
-                                    расходованию
-                                    части бюджета</li>
-                                <li><strong>Общественные обсуждения</strong> — на портале города и в социальных
-                                    сетях
-                                </li>
-                                <li><strong>Обращения в администрацию</strong> — письменные предложения и замечания
-                                </li>
-                                <li><strong>Участие в бюджетных советах</strong> — при муниципальных образованиях
-                                </li>
-                            </ol>
-                            <br>
-                            <img src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?w=600&h=300&fit=crop"
-                                alt="Public discussion" class="img-fluid rounded mt-2">
+                            <ol><li>Публичные слушания</li><li>Инициативное бюджетирование</li><li>Общественные обсуждения на портале города</li><li>Обращения в администрацию</li></ol>
                         </div>
                     </div>
                 </div>
 
-                <!-- Вопрос 5 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq5">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
                             <i class="bi bi-question-circle-fill accordion-icon"></i>
                             Что такое субсидии на оплату ЖКХ и кто может их получить?
                         </button>
                     </h2>
                     <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            <strong>Субсидия на оплату ЖКХ</strong> — это денежная выплата, которая частично
-                            компенсирует расходы на коммунальные услуги.
-                            <br><br>
-                            <strong>Право на получение имеют:</strong>
-                            <ul class="mt-2 mb-0">
-                                <li>Граждане, чьи расходы на ЖКХ превышают установленный процент от дохода семьи
-                                    (обычно
-                                    10-22% в зависимости от региона)</li>
-                                <li>Собственники жилья и наниматели по договору социального найма</li>
-                                <li>Члены жилищных кооперативов</li>
-                            </ul>
-                            <br>
-                            <div class="alert alert-success mb-0">
-                                <i class="bi bi-check-circle me-2"></i>
-                                Размер субсидии рассчитывается индивидуально и выплачивается ежемесячно.
-                            </div>
+                            <strong>Субсидия на оплату ЖКХ</strong> — это денежная выплата, которая частично компенсирует расходы на коммунальные услуги.<br><br>
+                            <strong>Право имеют:</strong> граждане, чьи расходы на ЖКХ превышают установленный процент от дохода семьи.
                         </div>
                     </div>
                 </div>
 
-                <!-- Вопрос 6 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq6">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
                             <i class="bi bi-question-circle-fill accordion-icon"></i>
                             Когда и как платить земельный налог?
                         </button>
                     </h2>
                     <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            <strong>Сроки уплаты:</strong> не позднее 1 декабря года, следующего за истекшим
-                            налоговым
-                            периодом.
-                            <br><br>
-                            <strong>Ставки налога:</strong>
-                            <ul class="mt-2 mb-0">
-                                <li>0,3% — для земель сельхозназначения, ИЖС, личного подсобного хозяйства</li>
-                                <li>1,5% — для прочих земельных участков</li>
-                            </ul>
-                            <br>
-                            <strong>Как оплатить:</strong>
-                            <ul class="mt-2 mb-0">
-                                <li>Через личный кабинет налогоплательщика на сайте nalog.ru</li>
-                                <li>В отделении банка по квитанции</li>
-                                <li>Через портал Госуслуг</li>
-                                <li>В МФЦ</li>
-                            </ul>
+                            <strong>Сроки уплаты:</strong> не позднее 1 декабря года, следующего за истекшим налоговым периодом.<br>
+                            <strong>Ставки налога:</strong> 0,3% для земель ИЖС, 1,5% для прочих участков.
                         </div>
                     </div>
                 </div>
 
-                <!-- Вопрос 7 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq7">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
                             <i class="bi bi-question-circle-fill accordion-icon"></i>
                             Какие программы поддержки малого бизнеса существуют в городе?
                         </button>
                     </h2>
                     <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            <strong>Меры поддержки предпринимателей:</strong>
-                            <br><br>
-                            <ul class="mb-0">
-                                <li><strong>Гранты:</strong> до 500 000 руб. на открытие бизнеса</li>
-                                <li><strong>Субсидии:</strong> компенсация части затрат на аренду, оборудование,
-                                    лизинг
-                                </li>
-                                <li><strong>Микрозаймы:</strong> под льготный процент (до 8,5% годовых)</li>
-                                <li><strong>Налоговые каникулы:</strong> для впервые зарегистрированных ИП</li>
-                                <li><strong>Бесплатное обучение:</strong> курсы по основам предпринимательства</li>
-                                <li><strong>Аренда муниципального имущества:</strong> по льготным ставкам</li>
-                            </ul>
-                            <br>
-                            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=300&fit=crop"
-                                alt="Business support" class="img-fluid rounded mt-2">
+                            <ul><li>Гранты до 500 000 руб.</li><li>Субсидии на аренду и оборудование</li><li>Микрозаймы под льготный процент</li><li>Налоговые каникулы для ИП</li></ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Вопрос 8 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq8">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
                             <i class="bi bi-question-circle-fill accordion-icon"></i>
                             Как получить налоговый вычет при покупке жилья?
                         </button>
                     </h2>
                     <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            <strong>Имущественный налоговый вычет</strong> позволяет вернуть 13% от стоимости жилья.
-                            <br><br>
-                            <strong>Размер вычета:</strong>
-                            <ul class="mt-2 mb-0">
-                                <li>До 260 000 руб. — за покупку жилья (максимум с 2 млн руб.)</li>
-                                <li>До 390 000 руб. — за проценты по ипотеке (с 3 млн руб.)</li>
-                            </ul>
-                            <br>
-                            <strong>Как оформить:</strong>
-                            <ol class="mt-2 mb-0">
-                                <li>Подать декларацию 3-НДФЛ в налоговую инспекцию</li>
-                                <li>Предоставить документы: договор купли-продажи, акт приема-передачи, платежные
-                                    документы</li>
-                                <li>Получить деньги на банковский счет</li>
-                            </ol>
-                            <br>
-                            <div class="alert alert-info mb-0">
-                                <i class="bi bi-info-circle me-2"></i>
-                                Также можно получать вычет через работодателя, не дожидаясь конца года.
-                            </div>
+                            До 260 000 руб. за покупку жилья + до 390 000 руб. за проценты по ипотеке. Оформить через декларацию 3-НДФЛ.
                         </div>
                     </div>
                 </div>
 
-                <!-- Вопрос 9 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq9">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9">
                             <i class="bi bi-question-circle-fill accordion-icon"></i>
                             Что входит в капитальный ремонт многоквартирного дома?
                         </button>
                     </h2>
                     <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            <strong>Минимальный перечень работ по капремонту:</strong>
-                            <br><br>
-                            <ul class="mb-0">
-                                <li>Ремонт внутридомовых инженерных систем (электричество, водоснабжение, отопление,
-                                    канализация)</li>
-                                <li>Ремонт или замена лифтового оборудования</li>
-                                <li>Ремонт крыши и подвалов</li>
-                                <li>Ремонт фасада и фундамента</li>
-                                <li>Утепление фасада (при наличии решения собственников)</li>
-                                <li>Ремонт подъездов</li>
-                            </ul>
-                            <br>
-                            <strong>Финансирование:</strong> за счет взносов собственников и средств регионального
-                            фонда
-                            капремонта.
+                            Ремонт инженерных систем, лифтов, крыши, фасада, подвалов, подъездов.
                         </div>
                     </div>
                 </div>
 
-                <!-- Вопрос 10 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq10">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10">
                             <i class="bi bi-question-circle-fill accordion-icon"></i>
-                            Как рассчитывается плата за вывоз ТКО (твердых коммунальных отходов)?
+                            Как рассчитывается плата за вывоз ТКО?
                         </button>
                     </h2>
                     <div id="faq10" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            <strong>Существует два способа расчета:</strong>
-                            <br><br>
-                            <ol class="mb-0">
-                                <li><strong>По количеству проживающих:</strong> норматив × число людей × тариф</li>
-                                <li><strong>По площади жилья:</strong> площадь × тариф</li>
-                            </ol>
-                            <br>
-                            <div class="alert alert-warning mb-2">
-                                <i class="bi bi-exclamation-triangle me-2"></i>
-                                Способ расчета выбирается на региональном уровне.
-                            </div>
-                            <br>
-                            <strong>Льготы:</strong> отдельные категории граждан (пенсионеры старше 70 лет,
-                            инвалиды,
-                            ветераны) имеют право на компенсацию расходов.
+                            Два способа: по количеству проживающих или по площади жилья.
                         </div>
                     </div>
                 </div>
 
-                <!-- Вопрос 11 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq11">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq11">
                             <i class="bi bi-question-circle-fill accordion-icon"></i>
                             Можно ли вернуть налог за лечение и обучение?
                         </button>
                     </h2>
                     <div id="faq11" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            <strong>Да, социальный налоговый вычет</strong> позволяет вернуть 13% от расходов.
-                            <br><br>
-                            <strong>За что можно получить вычет:</strong>
-                            <ul class="mt-2 mb-0">
-                                <li>Платное лечение (свое, супруга, родителей, детей до 18 лет)</li>
-                                <li>Покупка лекарств по назначению врача</li>
-                                <li>Добровольное медицинское страхование</li>
-                                <li>Свое обучение или обучение детей (очная форма)</li>
-                                <li>Благотворительность</li>
-                                <li>Накопительная часть пенсии</li>
-                            </ul>
-                            <br>
-                            <strong>Максимальная сумма:</strong> 120 000 руб. в год (кроме дорогостоящего лечения и
-                            обучения детей).
+                            Да, социальный налоговый вычет до 120 000 руб. в год.
                         </div>
                     </div>
                 </div>
 
-                <!-- Вопрос 12 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq12">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq12">
                             <i class="bi bi-question-circle-fill accordion-icon"></i>
                             Какие документы нужны для оформления пособия на ребенка?
                         </button>
                     </h2>
                     <div id="faq12" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            <strong>Основные документы:</strong>
-                            <br><br>
-                            <ul class="mb-0">
-                                <li>Паспорт заявителя</li>
-                                <li>Свидетельство о рождении ребенка</li>
-                                <li>Справка о составе семьи</li>
-                                <li>Справки о доходах всех членов семьи за последние 3-12 месяцев</li>
-                                <li>Реквизиты банковского счета</li>
-                                <li>Свидетельство о браке (при наличии)</li>
-                            </ul>
-                            <br>
-                            <strong>Где оформить:</strong>
-                            <ul class="mt-2 mb-0">
-                                <li>Через портал Госуслуг</li>
-                                <li>В МФЦ</li>
-                                <li>В органах социальной защиты</li>
-                            </ul>
+                            Паспорт, свидетельство о рождении, справка о доходах, реквизиты счета.
                         </div>
                     </div>
                 </div>
 
-                <!-- Вопрос 13 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq13">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq13">
                             <i class="bi bi-question-circle-fill accordion-icon"></i>
                             Как формируется тариф на коммунальные услуги?
                         </button>
                     </h2>
                     <div id="faq13" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            <strong>Тарифы устанавливаются региональными органами власти</strong> с учетом:
-                            <br><br>
-                            <ul class="mb-0">
-                                <li>Затрат ресурсоснабжающих организаций</li>
-                                <li>Индекса изменения тарифов (утверждается Правительством РФ)</li>
-                                <li>Уровня инфляции</li>
-                                <li>Необходимости модернизации инфраструктуры</li>
-                            </ul>
-                            <br>
-                            <div class="alert alert-info mb-0">
-                                <i class="bi bi-info-circle me-2"></i>
-                                Тарифы пересматриваются не чаще одного раза в год. Контроль за обоснованностью
-                                тарифов
-                                осуществляет Федеральная антимонопольная служба.
-                            </div>
+                            Устанавливается региональными органами власти с учетом затрат ресурсоснабжающих организаций и уровня инфляции.
                         </div>
                     </div>
                 </div>
 
-                <!-- Вопрос 14 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq14">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq14">
                             <i class="bi bi-question-circle-fill accordion-icon"></i>
                             Что делать, если я не согласен с начисленной суммой налога?
                         </button>
                     </h2>
                     <div id="faq14" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            <strong>Порядок действий:</strong>
-                            <br><br>
-                            <ol class="mb-0">
-                                <li><strong>Проверьте уведомление</strong> — возможно, есть ошибка в данных</li>
-                                <li><strong>Подайте заявление</strong> в налоговую инспекцию через личный кабинет
-                                    или
-                                    лично</li>
-                                <li><strong>Приложите документы</strong>, подтверждающие вашу позицию</li>
-                                <li><strong>Дождитесь ответа</strong> — налоговая обязана рассмотреть заявление в
-                                    течение 30 дней</li>
-                                <li><strong>При несогласии</strong> — можно обжаловать решение в вышестоящем
-                                    налоговом
-                                    органе или суде</li>
-                            </ol>
-                            <br>
-                            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=300&fit=crop"
-                                alt="Tax documents" class="img-fluid rounded mt-2">
+                            Подать заявление в налоговую инспекцию, приложить подтверждающие документы.
                         </div>
                     </div>
                 </div>
 
-                <!-- Вопрос 15 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq15">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq15">
                             <i class="bi bi-question-circle-fill accordion-icon"></i>
                             Как контролируется расходование бюджетных средств?
                         </button>
                     </h2>
                     <div id="faq15" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            <strong>Система контроля включает:</strong>
-                            <br><br>
-                            <ul class="mb-0">
-                                <li><strong>Внутренний контроль</strong> — финансовые органы администрации</li>
-                                <li><strong>Внешний контроль</strong> — Контрольно-счетная палата города</li>
-                                <li><strong>Государственный аудит</strong> — Счетная палата РФ и региональные
-                                    контрольные органы</li>
-                                <li><strong>Общественный контроль</strong> — общественные палаты, НКО, граждане</li>
-                                <li><strong>Прокурорский надзор</strong> — проверка законности расходов</li>
-                            </ul>
-                            <br>
-                            <strong>Открытость:</strong> вся информация о госзакупках, субсидиях и бюджетных
-                            инвестициях
-                            публикуется на официальных порталах.
+                            Внутренний и внешний контроль, общественный контроль, прокурорский надзор. Вся информация публикуется на официальных порталах.
                         </div>
                     </div>
                 </div>
@@ -828,8 +536,7 @@
                     <h5>Полезные ссылки</h5>
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-decoration-none text-muted">Открытый бюджет РФ</a></li>
-                        <li><a href="#" class="text-decoration-none text-muted">Федеральная налоговая служба</a>
-                        </li>
+                        <li><a href="#" class="text-decoration-none text-muted">Федеральная налоговая служба</a></li>
                         <li><a href="#" class="text-decoration-none text-muted">Портал Госуслуг</a></li>
                     </ul>
                 </div>
@@ -839,27 +546,16 @@
         </div>
     </footer>
 
-    <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Search Functionality -->
     <script>
-        document.getElementById('searchInput').addEventListener('input', function (e) {
+        document.getElementById('searchInput').addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
             const accordionItems = document.querySelectorAll('.accordion-item');
-
             accordionItems.forEach(item => {
-                const question = item.querySelector('.accordion-button').textContent.toLowerCase();
-                const answer = item.querySelector('.accordion-body').textContent.toLowerCase();
-
-                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = searchTerm === '' ? 'block' : 'none';
-                }
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(searchTerm) ? 'block' : 'none';
             });
         });
     </script>
 </body>
-
 </html>
